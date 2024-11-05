@@ -1,6 +1,7 @@
 "use client"
 import { FC, useState } from "react"
 import { todoType } from "@/types/todo-type"
+import { userType } from "@/types/user-type"
 import Todo from "./todo"
 import AddTodo from "./add-todo"
 import {
@@ -12,15 +13,19 @@ import {
 
 interface Props {
 	todos: todoType[]
+	user: userType
 }
 
-const Todos: FC<Props> = ({ todos }) => {
+const Todos: FC<Props> = ({ todos, user }) => {
 	const [todoItems, setTodoItems] = useState<todoType[]>(todos)
 
 	const createTodo = (text: string) => {
 		const id = (todoItems.at(-1)?.id || 0) + 1
-		addTodo(id, text)
-		setTodoItems((prev) => [...prev, { id: id, text, done: false }])
+		addTodo(id, text, user?.id)
+		setTodoItems((prev) => [
+			...prev,
+			{ id: id, text, done: false, userId: user?.id },
+		])
 	}
 
 	const changeTodoText = (id: number, text: string) => {
