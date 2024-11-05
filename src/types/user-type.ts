@@ -1,10 +1,11 @@
 export type userType = {
-	id: number
+	id?: number
 	clerkId: string
+	username: string
 	firstName: string
 	lastName: string
 	profileImg: string
 	email: string
-	createdAt: Date
-	updatedAt: Date
+	createdAt?: Date
+	updatedAt?: Date
 }

@@ -20,6 +20,7 @@ export const getCurrentUser = async (userId: number) => {
 
 export const addUser = async (user: userType) => {
 	await db.insert(users).values({
+		username: user?.username,
 		firstName: user?.firstName,
 		lastName: user?.lastName,
 		email: user?.email,
