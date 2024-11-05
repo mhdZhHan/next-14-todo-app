@@ -21,10 +21,10 @@ const Todos: FC<Props> = ({ todos, user }) => {
 
 	const createTodo = (text: string) => {
 		const id = (todoItems.at(-1)?.id || 0) + 1
-		addTodo(id, text, user?.id)
+		addTodo(id, text, user.id!)
 		setTodoItems((prev) => [
 			...prev,
-			{ id: id, text, done: false, userId: user?.id },
+			{ id: id, text, done: false, userId: user.id! },
 		])
 	}
 
