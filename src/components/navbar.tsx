@@ -1,11 +1,10 @@
 "use client"
 
-import { SignOutButton, UserButton, useClerk, useUser } from "@clerk/nextjs"
+import { SignOutButton, UserButton, useUser } from "@clerk/nextjs"
 import Link from "next/link"
 
 const Navbar = () => {
 	const { isSignedIn } = useUser()
-	const { signOut } = useClerk()
 
 	return (
 		<nav className="border-b h-[8vh] flex items-center">
@@ -16,12 +15,9 @@ const Navbar = () => {
 			</div>
 			{isSignedIn ? (
 				<>
-					<button
-						className="w-[100px] bg-gray-200 p-2 rounded-md text-center"
-						onClick={() => signOut}
-					>
+					<div className="w-[100px] bg-gray-200 p-2 rounded-md text-center">
 						<SignOutButton />
-					</button>
+					</div>
 
 					<UserButton />
 				</>

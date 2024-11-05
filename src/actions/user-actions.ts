@@ -9,10 +9,13 @@ export const getAllUsers = async () => {
 	return data
 }
 
-export const getCurrentUser = async (userId: number) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const authUser = async (userId: any) => {
 	const user = await db.query.users.findMany({
-		where: (users, { eq }) => eq(users.id, userId),
-		with: { todos: true },
+		where: (users, { eq }) => eq(users.clerkId, userId),
+		with: {
+			todos: true,
+		},
 	})
 
 	return user
