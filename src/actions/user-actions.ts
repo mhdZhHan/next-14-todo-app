@@ -2,6 +2,7 @@
 
 import { db } from "@/lib/db/drizzle"
 import { users } from "@/lib/db/schema"
+import { userType } from "@/types/user-type"
 
 export const getAllUsers = async () => {
 	const data = await db.select().from(users)
@@ -17,9 +18,12 @@ export const getCurrentUser = async (userId: number) => {
 	return user
 }
 
-export const addUser = async () => {
+export const addUser = async (user: userType) => {
 	await db.insert(users).values({
-		name: "Test user",
-		email: "hello@example.com",
+		firstName: user?.firstName,
+		lastName: user?.lastName,
+		email: user?.email,
+		profileImg: user?.profileImg,
+		clerkId: user?.clerkId,
 	})
 }

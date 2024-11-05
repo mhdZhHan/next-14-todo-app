@@ -1,6 +1,9 @@
 export type userType = {
 	id: number
-	name: string
+	clerkId: string
+	firstName: string
+	lastName: string
+	profileImg: string
 	email: string
 	createdAt: Date
 	updatedAt: Date

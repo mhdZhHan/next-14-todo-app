@@ -4,7 +4,7 @@ import { SignOutButton, UserButton, useClerk, useUser } from "@clerk/nextjs"
 import Link from "next/link"
 
 const Navbar = () => {
-	const { isSignedIn, user } = useUser()
+	const { isSignedIn } = useUser()
 	const { signOut } = useClerk()
 
 	return (
