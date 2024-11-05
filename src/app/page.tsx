@@ -11,7 +11,6 @@ export default async function Home() {
 	return (
 		<main className="flex items-center justify-between">
 			<Todos todos={data} user={users[0]} />
-			<h1>HELLO</h1>
 		</main>
 	)
 }
